@@ -64,9 +64,12 @@ const featureCards = document.querySelectorAll(".feature-card");
 const featureModal = document.querySelector(".feature-modal");
 const featureList = document.querySelector(".feature-list");
 let cartSummary = document.querySelector(".cart-summary");
-const SUMMARY_ENABLED = /index\.html|menu\.html|^\/$|^$/.test(
-  (window.location.pathname || "").toLowerCase()
-);
+const path = (window.location.pathname || "").toLowerCase();
+const SUMMARY_ENABLED =
+  /index\.html$/.test(path) ||
+  /menu\.html$/.test(path) ||
+  /\/k-street-food\/?$/.test(path) ||
+  /^\/$/.test(path);
 
 const MENU_DATA = {
   Bibimbap: {
