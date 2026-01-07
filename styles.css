@@ -510,7 +510,8 @@ main {
   opacity: 0;
   transition: opacity 200ms ease, transform 200ms ease;
   max-width: 92%;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   font-weight: 700;
   letter-spacing: 0.2px;
   font-family: "Manrope", "Noto Sans KR", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -523,6 +524,18 @@ main {
 
 .cart-summary strong {
   margin-right: 6px;
+}
+
+@media (max-width: 640px) {
+  .cart-summary {
+    bottom: 20px;
+    padding: 10px 18px;
+    gap: 6px;
+    font-size: 13px;
+    line-height: 1.2;
+    max-width: 92%;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
+  }
 }
 .feature-modal {
   position: fixed;
@@ -792,7 +805,7 @@ main {
 form {
   display: grid;
   gap: 12px;
-  width: 240px;
+  width: 200px;
   max-width: none;
 }
 
