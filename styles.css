@@ -792,7 +792,7 @@ main {
 form {
   display: grid;
   gap: 12px;
-  width: 200px;
+  width: 240px;
   max-width: none;
 }
 
