@@ -57,7 +57,7 @@ Detail: ${message}`;
   });
 }
 
-// Cart logic for menu page
+// Cart logic untuk tab menu
 const CART_KEY = "kstreet_cart";
 const cartFab = document.querySelector(".cart-fab");
 const toast = document.querySelector(".toast");
@@ -79,98 +79,98 @@ const MENU_DATA = {
   Bibimbap: {
     name: "Bibimbap",
     tag: "Rice Bowl",
-    img: "assets/Bibimbap.jpg",
+    img: "assets/food/Bibimbap.jpg",
     price: "42K",
     ready: "8 menit",
   },
   "Yangnyeom Chicken": {
     name: "Yangnyeom Chicken",
     tag: "Pedas",
-    img: "assets/Yangnyeom_Chicken.jpg",
+    img: "assets/food/Yangnyeom_Chicken.jpg",
     price: "48K",
     ready: "10 menit",
   },
   "Kimchi Jjigae": {
     name: "Kimchi Jjigae",
     tag: "Sup",
-    img: "assets/Kimchi_Jjigae.jpg",
+    img: "assets/food/Kimchi_Jjigae.jpg",
     price: "40K",
     ready: "9 menit",
   },
   Tteokbokki: {
     name: "Tteokbokki",
     tag: "Street Food",
-    img: "assets/Tteokbokki.jpg",
+    img: "assets/food/Tteokbokki.jpg",
     price: "35K",
     ready: "7 menit",
   },
   Jjajangmyeon: {
     name: "Jjajangmyeon",
     tag: "Noodle",
-    img: "assets/Jjajangmyeon.jpg",
+    img: "assets/food/Jjajangmyeon.jpg",
     price: "45K",
     ready: "8 menit",
   },
   Hotteok: {
     name: "Hotteok",
     tag: "Snack",
-    img: "assets/Hotteok.jpg",
+    img: "assets/snack/Hotteok.jpg",
     price: "18K",
     ready: "5 menit",
   },
   Kimbap: {
     name: "Kimbap",
-    tag: "Roll",
-    img: "assets/Kimbap.jpg",
+    tag: "Snack",
+    img: "assets/snack/Kimbap.jpg",
     price: "32K",
     ready: "6 menit",
   },
   Mandu: {
     name: "Mandu",
-    tag: "Dumpling",
-    img: "assets/Mandu.jpg",
+    tag: "Snack",
+    img: "assets/snack/Mandu.jpg",
     price: "30K",
     ready: "7 menit",
   },
   "Honey Citron Tea": {
     name: "Honey Citron Tea",
     tag: "Drink",
-    img: "assets/Honey_Citron_Tea.jpg",
+    img: "assets/drink/Honey_Citron_Tea.jpg",
     price: "25K",
     ready: "4 menit",
   },
   "Strawberry Milk": {
     name: "Strawberry Milk",
     tag: "Drink",
-    img: "assets/Strawberry_Milk.jpg",
+    img: "assets/drink/Strawberry_Milk.jpg",
     price: "28K",
     ready: "3 menit",
   },
   "Iced Americano": {
     name: "Iced Americano",
     tag: "Drink",
-    img: "assets/Iced_Americano.jpg",
+    img: "assets/drink/Iced_Americano.jpg",
     price: "22K",
     ready: "2 menit",
   },
   "Peach Iced Tea": {
     name: "Peach Iced Tea",
     tag: "Drink",
-    img: "assets/Peach_Iced_Tea.jpg",
+    img: "assets/drink/Peach_Iced_Tea.jpg",
     price: "24K",
     ready: "3 menit",
   },
   "Matcha Latte": {
     name: "Matcha Latte",
     tag: "Drink",
-    img: "assets/Matcha_Latte.jpg",
+    img: "assets/drink/Matcha_Latte.jpg",
     price: "30K",
     ready: "4 menit",
   },
   "Korean Banana Milk": {
     name: "Korean Banana Milk",
     tag: "Drink",
-    img: "assets/Korean_Banana_Milk.jpg",
+    img: "assets/drink/Korean_Banana_Milk.jpg",
     price: "26K",
     ready: "3 menit",
   },
