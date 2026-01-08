@@ -35,8 +35,14 @@
           <p>Setiap menu dimarinasi lama, dimasak api arang, disajikan hangat dengan saus rumahan.</p>
         </header>
 
+        <div class="menu-tabs reveal">
+          <button class="tab-btn active" data-menu-tab="food" type="button">Food</button>
+          <button class="tab-btn" data-menu-tab="drink" type="button">Drink</button>
+        </div>
+
+        <!-- CODE MENU  -->
         <div class="card-grid">
-          <article class="card reveal" style="background: linear-gradient(145deg, rgba(255, 143, 177, 0.16), rgba(255, 255, 255, 0.92));">
+          <article class="card reveal" data-category="food" style="background: linear-gradient(145deg, rgba(255, 143, 177, 0.16), rgba(255, 255, 255, 0.92));">
             <div class="card-content">
               <button class="add-btn" data-name="Bibimbap" title="Tambah ke keranjang">+</button>
               <img src="assets/Bibimbap.jpg" alt="Bibimbap" loading="lazy" />
@@ -51,7 +57,7 @@
               </div>
             </div>
           </article>
-          <article class="card reveal" style="background: linear-gradient(160deg, rgba(143, 211, 244, 0.18), rgba(255, 255, 255, 0.94));">
+          <article class="card reveal" data-category="food" style="background: linear-gradient(160deg, rgba(143, 211, 244, 0.18), rgba(255, 255, 255, 0.94));">
             <div class="card-content">
               <button class="add-btn" data-name="Yangnyeom Chicken" title="Tambah ke keranjang">+</button>
               <img src="assets/Yangnyeom_Chicken.jpg" alt="Yangnyeom Chicken" loading="lazy" />
@@ -66,7 +72,7 @@
               </div>
             </div>
           </article>
-          <article class="card reveal" style="background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 143, 177, 0.18));">
+          <article class="card reveal" data-category="food" style="background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 143, 177, 0.18));">
             <div class="card-content">
               <button class="add-btn" data-name="Kimchi Jjigae" title="Tambah ke keranjang">+</button>
               <img src="assets/Kimchi_Jjigae.jpg" alt="Kimchi Jjigae" loading="lazy" />
@@ -81,7 +87,7 @@
               </div>
             </div>
           </article>
-          <article class="card reveal" style="background: linear-gradient(145deg, rgba(255, 143, 177, 0.12), rgba(255, 255, 255, 0.94));">
+          <article class="card reveal" data-category="food" style="background: linear-gradient(145deg, rgba(255, 143, 177, 0.12), rgba(255, 255, 255, 0.94));">
             <div class="card-content">
               <button class="add-btn" data-name="Tteokbokki" title="Tambah ke keranjang">+</button>
               <img src="assets/Tteokbokki.jpg" alt="Tteokbokki" loading="lazy" />
@@ -96,7 +102,7 @@
               </div>
             </div>
           </article>
-          <article class="card reveal" style="background: linear-gradient(150deg, rgba(143, 211, 244, 0.18), rgba(255, 255, 255, 0.92));">
+          <article class="card reveal" data-category="food" style="background: linear-gradient(150deg, rgba(143, 211, 244, 0.18), rgba(255, 255, 255, 0.92));">
             <div class="card-content">
               <button class="add-btn" data-name="Jjajangmyeon" title="Tambah ke keranjang">+</button>
               <img src="assets/Jjajangmyeon.jpg" alt="Jjajangmyeon" loading="lazy" />
@@ -111,7 +117,7 @@
               </div>
             </div>
           </article>
-          <article class="card reveal" style="background: linear-gradient(140deg, rgba(255, 143, 177, 0.14), rgba(255, 255, 255, 0.94));">
+          <article class="card reveal" data-category="food" style="background: linear-gradient(140deg, rgba(255, 143, 177, 0.14), rgba(255, 255, 255, 0.94));">
             <div class="card-content">
               <button class="add-btn" data-name="Hotteok" title="Tambah ke keranjang">+</button>
               <img src="assets/Hotteok.jpg" alt="Hotteok" loading="lazy" />
@@ -126,7 +132,7 @@
               </div>
             </div>
           </article>
-          <article class="card reveal" style="background: linear-gradient(160deg, rgba(255, 143, 177, 0.14), rgba(255, 255, 255, 0.94));">
+          <article class="card reveal" data-category="food" style="background: linear-gradient(160deg, rgba(255, 143, 177, 0.14), rgba(255, 255, 255, 0.94));">
             <div class="card-content">
               <button class="add-btn" data-name="Kimbap" title="Tambah ke keranjang">+</button>
               <img src="assets/Kimbap.jpg" alt="Kimbap" loading="lazy" />
@@ -141,7 +147,7 @@
               </div>
             </div>
           </article>
-          <article class="card reveal" style="background: linear-gradient(150deg, rgba(143, 211, 244, 0.18), rgba(255, 255, 255, 0.94));">
+          <article class="card reveal" data-category="food" style="background: linear-gradient(150deg, rgba(143, 211, 244, 0.18), rgba(255, 255, 255, 0.94));">
             <div class="card-content">
               <button class="add-btn" data-name="Mandu" title="Tambah ke keranjang">+</button>
               <img src="assets/Mandu.jpg" alt="Mandu" loading="lazy" />
@@ -153,6 +159,96 @@
                 <button class="qty-btn cart-dec" data-name="Mandu" type="button">-</button>
                 <span class="qty-value" data-name="Mandu">0</span>
                 <button class="qty-btn cart-inc" data-name="Mandu" type="button">+</button>
+              </div>
+            </div>
+          </article>
+          <article class="card reveal" data-category="drink" style="background: linear-gradient(150deg, rgba(143, 211, 244, 0.15), rgba(255, 255, 255, 0.88));">
+            <div class="card-content">
+              <button class="add-btn" data-name="Honey Citron Tea" title="Tambah ke keranjang">+</button>
+              <img src="assets/Honey_Citron_Tea.jpg" alt="Honey Citron Tea" loading="lazy" />
+              <span class="tag">Drink</span>
+              <h3>Honey Citron Tea</h3>
+              <p class="muted">Teh hangat yujacha dengan aroma jeruk citron, madu, dan serat buah.</p>
+              <p class="price-line"><strong>Harga:</strong> 25K <strong>Ready:</strong> 4 menit</p>
+              <div class="qty-row" style="margin-top:6px;">
+                <button class="qty-btn cart-dec" data-name="Honey Citron Tea" type="button">-</button>
+                <span class="qty-value" data-name="Honey Citron Tea">0</span>
+                <button class="qty-btn cart-inc" data-name="Honey Citron Tea" type="button">+</button>
+              </div>
+            </div>
+          </article>
+          <article class="card reveal" data-category="drink" style="background: linear-gradient(145deg, rgba(255, 143, 177, 0.16), rgba(255, 255, 255, 0.9));">
+            <div class="card-content">
+              <button class="add-btn" data-name="Strawberry Milk" title="Tambah ke keranjang">+</button>
+              <img src="assets/Strawberry_Milk.jpg" alt="Strawberry Milk" loading="lazy" />
+              <span class="tag">Drink</span>
+              <h3>Strawberry Milk</h3>
+              <p class="muted">Susu segar dengan puree stroberi dan krim ringan khas kafe Seoul.</p>
+              <p class="price-line"><strong>Harga:</strong> 28K <strong>Ready:</strong> 3 menit</p>
+              <div class="qty-row" style="margin-top:6px;">
+                <button class="qty-btn cart-dec" data-name="Strawberry Milk" type="button">-</button>
+                <span class="qty-value" data-name="Strawberry Milk">0</span>
+                <button class="qty-btn cart-inc" data-name="Strawberry Milk" type="button">+</button>
+              </div>
+            </div>
+          </article>
+          <article class="card reveal" data-category="drink" style="background: linear-gradient(160deg, rgba(143, 211, 244, 0.16), rgba(255, 255, 255, 0.9));">
+            <div class="card-content">
+              <button class="add-btn" data-name="Iced Americano" title="Tambah ke keranjang">+</button>
+              <img src="assets/Iced_Americano.jpg" alt="Iced Americano" loading="lazy" />
+              <span class="tag">Drink</span>
+              <h3>Iced Americano</h3>
+              <p class="muted">Kopi single origin diseduh dingin, rasa clean dan ringan untuk siang.</p>
+              <p class="price-line"><strong>Harga:</strong> 22K <strong>Ready:</strong> 2 menit</p>
+              <div class="qty-row" style="margin-top:6px;">
+                <button class="qty-btn cart-dec" data-name="Iced Americano" type="button">-</button>
+                <span class="qty-value" data-name="Iced Americano">0</span>
+                <button class="qty-btn cart-inc" data-name="Iced Americano" type="button">+</button>
+              </div>
+            </div>
+          </article>
+          <article class="card reveal" data-category="drink" style="background: linear-gradient(150deg, rgba(255, 143, 177, 0.14), rgba(255, 255, 255, 0.9));">
+            <div class="card-content">
+              <button class="add-btn" data-name="Peach Iced Tea" title="Tambah ke keranjang">+</button>
+              <img src="assets/Peach_Iced_Tea.jpg" alt="Peach Iced Tea" loading="lazy" />
+              <span class="tag">Drink</span>
+              <h3>Peach Iced Tea</h3>
+              <p class="muted">Teh dingin dengan sirup peach, aroma segar dan rasa manis ringan.</p>
+              <p class="price-line"><strong>Harga:</strong> 24K <strong>Ready:</strong> 3 menit</p>
+              <div class="qty-row" style="margin-top:6px;">
+                <button class="qty-btn cart-dec" data-name="Peach Iced Tea" type="button">-</button>
+                <span class="qty-value" data-name="Peach Iced Tea">0</span>
+                <button class="qty-btn cart-inc" data-name="Peach Iced Tea" type="button">+</button>
+              </div>
+            </div>
+          </article>
+          <article class="card reveal" data-category="drink" style="background: linear-gradient(150deg, rgba(143, 211, 244, 0.16), rgba(255, 255, 255, 0.9));">
+            <div class="card-content">
+              <button class="add-btn" data-name="Matcha Latte" title="Tambah ke keranjang">+</button>
+              <img src="assets/Matcha_Latte.jpg" alt="Matcha Latte" loading="lazy" />
+              <span class="tag">Drink</span>
+              <h3>Matcha Latte</h3>
+              <p class="muted">Matcha Jepang dipadu susu creamy, disajikan hangat atau dingin.</p>
+              <p class="price-line"><strong>Harga:</strong> 30K <strong>Ready:</strong> 4 menit</p>
+              <div class="qty-row" style="margin-top:6px;">
+                <button class="qty-btn cart-dec" data-name="Matcha Latte" type="button">-</button>
+                <span class="qty-value" data-name="Matcha Latte">0</span>
+                <button class="qty-btn cart-inc" data-name="Matcha Latte" type="button">+</button>
+              </div>
+            </div>
+          </article>
+          <article class="card reveal" data-category="drink" style="background: linear-gradient(155deg, rgba(255, 143, 177, 0.12), rgba(255, 255, 255, 0.88));">
+            <div class="card-content">
+              <button class="add-btn" data-name="Korean Banana Milk" title="Tambah ke keranjang">+</button>
+              <img src="assets/Korean_Banana_Milk.jpg" alt="Korean Banana Milk" loading="lazy" />
+              <span class="tag">Drink</span>
+              <h3>Korean Banana Milk</h3>
+              <p class="muted">Susu pisang gaya kios Seoul, rasa fruity lembut dan creamy.</p>
+              <p class="price-line"><strong>Harga:</strong> 26K <strong>Ready:</strong> 3 menit</p>
+              <div class="qty-row" style="margin-top:6px;">
+                <button class="qty-btn cart-dec" data-name="Korean Banana Milk" type="button">-</button>
+                <span class="qty-value" data-name="Korean Banana Milk">0</span>
+                <button class="qty-btn cart-inc" data-name="Korean Banana Milk" type="button">+</button>
               </div>
             </div>
           </article>
