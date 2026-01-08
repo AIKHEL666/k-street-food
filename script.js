@@ -52,7 +52,7 @@ if (form) {
     const text = `Halo, saya ${name} ingin pesan catering (${interest}).
 Email: ${email}
 Detail: ${message}`;
-    const url = `https://wa.me/6285156575538?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/62881036380166?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   });
 }
@@ -342,7 +342,7 @@ document.querySelector("[data-clear-cart]")?.addEventListener("click", () => {
   updateQtyDisplays();
 });
 
-const WA_NUMBER = "6285156575538";
+const WA_NUMBER = "62881036380166";
 
 // Susun template pesan WA dari isi keranjang
 function buildOrderMessage() {
