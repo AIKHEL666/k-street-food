@@ -1,6 +1,9 @@
 const burger = document.querySelector(".burger");
 const navLinks = document.querySelector(".nav-links");
+const menuTabs = document.querySelectorAll("[data-menu-tab]");
+const menuCards = document.querySelectorAll(".card[data-category]");
 
+// Toggle burger menu untuk navigasi mobile
 if (burger && navLinks) {
   burger.addEventListener("click", () => {
     burger.classList.toggle("open");
@@ -8,7 +11,7 @@ if (burger && navLinks) {
   });
 }
 
-// Close mobile menu on link click
+// Tutup menu ketika link diklik
 navLinks?.querySelectorAll("a").forEach((link) =>
   link.addEventListener("click", () => {
     burger?.classList.remove("open");
@@ -16,11 +19,12 @@ navLinks?.querySelectorAll("a").forEach((link) =>
   })
 );
 
+// Simpan flag agar halaman contact langsung buka keranjang
 document.querySelectorAll('a[href="contact.html"]').forEach((link) =>
   link.addEventListener("click", () => localStorage.setItem("kstreet_cart_open", "1"))
 );
 
-// Scroll reveal
+// Scroll reveal: tambahkan kelas visible saat elemen masuk viewport
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -35,7 +39,7 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-// Simple form handler (contact)
+// Form contact: rakit pesan WA otomatis
 const form = document.querySelector("#contact-form");
 if (form) {
   form.addEventListener("submit", (e) => {
@@ -128,10 +132,70 @@ const MENU_DATA = {
     price: "30K",
     ready: "7 menit",
   },
+  "Honey Citron Tea": {
+    name: "Honey Citron Tea",
+    tag: "Drink",
+    img: "assets/Honey_Citron_Tea.jpg",
+    price: "25K",
+    ready: "4 menit",
+  },
+  "Strawberry Milk": {
+    name: "Strawberry Milk",
+    tag: "Drink",
+    img: "assets/Strawberry_Milk.jpg",
+    price: "28K",
+    ready: "3 menit",
+  },
+  "Iced Americano": {
+    name: "Iced Americano",
+    tag: "Drink",
+    img: "assets/Iced_Americano.jpg",
+    price: "22K",
+    ready: "2 menit",
+  },
+  "Peach Iced Tea": {
+    name: "Peach Iced Tea",
+    tag: "Drink",
+    img: "assets/Peach_Iced_Tea.jpg",
+    price: "24K",
+    ready: "3 menit",
+  },
+  "Matcha Latte": {
+    name: "Matcha Latte",
+    tag: "Drink",
+    img: "assets/Matcha_Latte.jpg",
+    price: "30K",
+    ready: "4 menit",
+  },
+  "Korean Banana Milk": {
+    name: "Korean Banana Milk",
+    tag: "Drink",
+    img: "assets/Korean_Banana_Milk.jpg",
+    price: "26K",
+    ready: "3 menit",
+  },
 };
 
 let cartItems = {};
 
+// Filter grid Food/Drink di halaman menu
+function applyMenuFilter(category = "food") {
+  if (!menuTabs.length || !menuCards.length) return;
+  menuTabs.forEach((btn) => btn.classList.toggle("active", btn.dataset.menuTab === category));
+  menuCards.forEach((card) => {
+    const isMatch = card.dataset.category === category;
+    card.classList.toggle("hidden", !isMatch);
+  });
+}
+
+menuTabs.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    applyMenuFilter(btn.dataset.menuTab || "food");
+  })
+);
+applyMenuFilter("food");
+
+// Ambil keranjang dari localStorage (migrasi array lama -> map qty)
 function loadCart() {
   if (Object.keys(cartItems).length) return cartItems;
   try {
@@ -154,18 +218,21 @@ function loadCart() {
   return cartItems;
 }
 
+// Simpan keranjang ke localStorage
 function persistCart() {
   try {
     localStorage.setItem(CART_KEY, JSON.stringify(cartItems));
   } catch {}
 }
 
+// Tampilkan jumlah item di badge FAB
 function updateBadge() {
   const badge = cartFab?.querySelector(".badge");
   const total = Object.values(cartItems).reduce((a, b) => a + b, 0);
   if (badge) badge.textContent = total;
 }
 
+// Notifikasi popup singkat
 function showToast(text) {
   if (!toast) return;
   toast.textContent = text;
@@ -173,6 +240,7 @@ function showToast(text) {
   setTimeout(() => toast.classList.remove("show"), 1600);
 }
 
+// Tambah/kurangi item keranjang lalu refresh semua UI terkait
 function addItem(name, delta = 1) {
   if (!name) return;
   cartItems[name] = (cartItems[name] || 0) + delta;
@@ -185,6 +253,7 @@ function addItem(name, delta = 1) {
   updateQtyDisplays();
 }
 
+// Render isi keranjang di modal utama
 function renderCartModal() {
   if (!cartItemsEl) return;
   const entries = Object.entries(cartItems);
@@ -212,6 +281,7 @@ function renderCartModal() {
     .join("");
 }
 
+// Render keranjang versi ringkas di halaman contact
 function renderContactCart() {
   if (!cartList) return;
   const entries = Object.entries(cartItems);
@@ -224,16 +294,18 @@ function renderContactCart() {
     .join("");
 }
 
+// Buka modal keranjang dan render ulang
 function openCart() {
   renderCartModal();
   cartModal?.classList.add("show");
 }
 
+// Tutup modal keranjang
 function closeCart() {
   cartModal?.classList.remove("show");
 }
 
-// initialize
+// Inisialisasi: sync keranjang, badge, dan ringkasan awal
 loadCart();
 updateBadge();
 renderCartModal();
@@ -272,6 +344,7 @@ document.querySelector("[data-clear-cart]")?.addEventListener("click", () => {
 
 const WA_NUMBER = "6285156575538";
 
+// Susun template pesan WA dari isi keranjang
 function buildOrderMessage() {
   const entries = Object.entries(cartItems);
   if (!entries.length) return "";
@@ -296,6 +369,7 @@ document.querySelectorAll("a.btn.primary[href='contact.html']").forEach((btn) =>
   })
 );
 
+// Buka popup kartu menu unggulan dengan daftar item dinamis
 function openFeatureModal(items, title) {
   if (!featureModal || !featureList) return;
   featureList.innerHTML = items
@@ -345,6 +419,7 @@ document.querySelector("[data-close-feature]")?.addEventListener("click", () => 
   featureModal?.classList.remove("show");
 });
 
+// Sync angka qty di semua kartu dengan state keranjang
 function updateQtyDisplays() {
   document.querySelectorAll(".qty-value").forEach((el) => {
     const name = el.dataset.name;
@@ -352,6 +427,7 @@ function updateQtyDisplays() {
   });
 }
 
+// Konversi "45K" menjadi angka 45000
 function priceToNumber(price) {
   if (!price) return 0;
   const num = parseInt(price.replace(/[^0-9]/g, ""), 10);
@@ -360,6 +436,7 @@ function priceToNumber(price) {
   return num;
 }
 
+// Hitung total harga keranjang (angka)
 function getCartTotal() {
   return Object.entries(cartItems).reduce((sum, [name, qty]) => {
     const item = MENU_DATA[name];
@@ -368,10 +445,12 @@ function getCartTotal() {
   }, 0);
 }
 
+// Format angka jadi rupiah tanpa desimal
 function formatCurrency(num) {
   return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(num);
 }
 
+// Pastikan tombol ringkasan keranjang tersedia di body
 function ensureSummary() {
   if (!SUMMARY_ENABLED) return null;
   if (cartSummary) return cartSummary;
@@ -383,6 +462,7 @@ function ensureSummary() {
   return cartSummary;
 }
 
+// Perbarui teks dan visibilitas ringkasan mengambang
 function updateSummary() {
   if (!SUMMARY_ENABLED) {
     if (cartSummary) cartSummary.classList.remove("show");
