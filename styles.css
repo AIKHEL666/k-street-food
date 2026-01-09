@@ -264,6 +264,46 @@ main {
   min-height: 320px;
 }
 
+.visual.has-video {
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  min-height: 360px;
+}
+
+.visual.has-video video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* tampilkan penuh tanpa crop */
+  object-position: center;
+  background: #0b0910;
+  filter: brightness(0.95);
+  display: block;
+}
+
+.visual.has-video .orb {
+  background: linear-gradient(145deg, rgba(14, 10, 16, 0.55), rgba(14, 10, 16, 0.7));
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.visual.has-video .grid-lines {
+  opacity: 0.18;
+}
+
+.visual.has-video .floating-card {
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  bottom: 20px;
+}
+
 
 
 .orb {
@@ -407,6 +447,11 @@ main {
   overflow: hidden;
   transition: transform var(--transition), border-color var(--transition), background var(--transition), box-shadow var(--transition);
   display: flex;
+}
+
+.feature-card.has-bg {
+  background: linear-gradient(250deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.9)), var(--card-bg) center / cover no-repeat !important;
+  color: var(--text);
 }
 
 .card::after {
@@ -897,21 +942,94 @@ main {
 /* Contact */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 12px;
-  justify-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  align-items: start;
 }
 
 .contact-grid .card {
   width: 100%;
-  max-width: 360px;
+  max-width: none;
+}
+
+.contact-card {
+  background: linear-gradient(165deg, rgba(12, 10, 18, 0.92), rgba(10, 7, 14, 0.94));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.contact-card .card-content {
+  width: 100%;
+}
+
+.form-card {
+  border-radius: 18px;
+}
+
+.about-card {
+  border-radius: 18px;
+  grid-column: span 2;
+}
+
+.team-card {
+  grid-column: 1 / -1;
+  border-radius: 18px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.member-card {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 0;
+  padding: 8px 8px 10px;
+  border-radius: 18px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.member-card img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.member-info span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.member-divider {
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  margin: -4px auto 4px;
+  border-radius: 999px;
 }
 
 form {
   display: grid;
   gap: 12px;
-  width: 250px;
-  max-width: none;
+  width: 100%;
+  max-width: 520px;
 }
 
 label {
